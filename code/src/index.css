@@ -7,6 +7,168 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/cody-weiss-sOCob88Giko-unsplash.png');
+  background-position: top center;
+  /*background: #009fba;
+  box-shadow:  20px 20px 60px #00879e, 
+             -20px -20px 60px #00b7d6;*/
+}
+
+h1 {
+  display: flex;
+  margin: 0px 30px;
+  color: white;
+  margin-top: 60%;
+  font-weight: normal;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  display: flex;
+  margin: 0px 30px;
+  color: white;
+  margin-top: 60%;
+  font-weight: normal;
+  font-size: 26px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  background-color: transparent;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+  margin: 30px;
+  color: white;
+  font-size: 20px;
+  padding: 1rem;
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.error ::placeholder {
+  color: white;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-bottom: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  color: white;
+  border: solid 2px white;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+form.rating {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + span {
+  opacity: 0.3;
+}
+
+input[type="radio"]:hover + span {
+  opacity: unset;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + span {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+select {
+  background-color: transparent;
+  color: white;
+  opacity: 0.5;
+  padding: 16px;
+  font-size: 20px;
+  border: 2px white;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+span.question {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  margin: 20px 30px 0px 30px;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 90%; 
+}
+
+
+/*main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -105,4 +267,4 @@ button {
   padding-left: 30%;
   padding-right: 30%;
   text-align: center;
-}
+}*/

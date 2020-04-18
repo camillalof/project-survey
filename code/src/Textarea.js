@@ -1,14 +1,14 @@
 import React from 'react'
 
-export const Input = (props) =>  (
+export const Textarea = (props) =>  (
   
-  <form className='name'>
+  <form className='feedback'>
     <label>
       {props.label}
       <input
         required
-        type="text"
-        name="text"
+        type="textarea"
+        name="textarea"
         placeholder={props.placeholder}
         value={props.value}
         onChange={(event) => props.setValue(event.target.value)} 

@@ -1,15 +1,16 @@
 import React from 'react'
 
 export const Dropdown = (props) => (
-    <div className="comeback">
+    <form className="treatment">
         <select
-          onChange={(event) => props.setTreatment(event.target.value)}
-          value={props.treatment}
+          className="select"
+          onChange={(event) => props.setFind(event.target.value)}
+          value={props.find}
         >
-          <option value="">Select treatment:</option>
-          <option value="Cut">Cut</option>
-          <option value="Colour">Colour</option>
-          <option value="Shave">Shave</option>
+          <option value="">Select option here:</option>
+          <option value="social media">social media</option>
+          <option value="a friend">a friend</option>
+          <option value="google">google</option>
         </select>
-        </div>
+    </form>
     );

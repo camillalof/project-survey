@@ -1,85 +1,116 @@
 import React, { useState } from 'react'
-import { Summary } from './Summary.js'
-import { Happiness } from './Happiness'
+
+import { Summary } from './summary.js'
+import { Rating } from './Rating.js'
 import { Input } from './Input'
 import { Dropdown } from './Dropdown'
+import { Textarea } from './Textarea'
+
 
 export const App = () => {
-  const [happiness, setHappiness] = useState('')
-  const [feeling, setFeeling] = useState('')
+  const [rating, setRating] = useState('')
+  const [name, setName] = useState('')
   const [showResult, setShowResult] = useState(false)
-  const [question, setQuestion] = useState('feeling')
-  const [treatment, setTreatment] = useState("");
+  const [question, setQuestion] = useState('name')
+  const [find, setFind] = useState("")
+  const [error, setError] = useState(false)
+  const [feedback, setFeedback] = useState('')
   
 
-  const handleSubmit = (event) => {
-   event.preventDefault() //spara informationen så att sidan inte laddas om (det vanliga sidobeteendet)
-    setShowResult(true)
-  }
-
-  const handleContinueClick = () => {
-    console.log('click continue')
-    if (question === 'feeling') {
-      setQuestion('happiness') 
-    } else if (question === 'happiness') {
-        setQuestion('treatment')
-      
+  const handleSubmitOrContinue = (event) => {
+    event.preventDefault()
+ 
+    if (question === 'name') {
+      setQuestion('find') 
+    } else if (question === 'find') {
+      setQuestion('rating')
+    } else if (question === 'rating') {
+      setQuestion('feedback')
+    } else {
+      // do the actualy submit.
+      setShowResult(true)
     }
-  }
+
+    if (name.length <= 2) {
+      setQuestion('name')
+      setError(true)
+    }
+  } 
 
   return (
-  <div>
+  <main>
     {showResult && (
-      <Summary feeling={feeling} happiness={happiness} />
+      <Summary 
+        name={name} 
+        find={find}
+        rating={rating}
+        feedback={feedback} 
+      />
     )}
-
     {!showResult && (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitOrContinue}> 
+      {question === 'name' && (
+        <span className="question">
+          {!error && (
+            <span className="valid">
+              <h2>Welcome to us, whats your name?*</h2>
+              <Input 
+                placeholder="Type name here..."
+                value={name}
+                setValue={setName} 
+              />
+            </span>  
+          )}  
+          {error && (
+            <span className="error">
+              <h2>Welcome to us, whats your name?*</h2>
+              <Input 
+                placeholder="** name required"
+                value={name}
+                setValue={setName} 
+              />
+            </span>  
+          )}  
 
-      {question === 'feeling' && (
-        <div className="question">
-          
-          <h1>Fill in your name:</h1>
-        
-          <Input 
-          label="Name"
-          value={feeling}
-          setValue={setFeeling} />
-
-        </div>
+        </span>
       )}
-
-      {question === 'happiness' && (
-        <div className="question">
-
-          <hi>How did you like our service?</hi>
-
-          <Happiness 
-          happiness={happiness} 
-          setHappiness={setHappiness} />
-        </div>
-      )}
-
-      {question === 'treatment' && (
-        <div className="question">
-        <Dropdown
-           treatment={treatment}
-           setTreatment={setTreatment}
-        />
-
+      {question === 'find' && (
+        <span className="question">
+          <h2>How did you find us?</h2>
+            <Dropdown
+              find={find}
+              setFind={setFind}
+            />
           <button type="submit">
-          Send
-          </button>
-        </div>
+            Continue
+          </button> 
+        </span>
       )}
-
-      {question !== 'treatment' && (
-        <button type="button" onClick={handleContinueClick}>
-          Continue
+      {question === 'rating' && (
+        <span className="question">
+          <h2>How would you rate your experience?</h2>
+            <Rating 
+              rating={rating} 
+              setRating={setRating} />
+        </span>
+      )}
+      {question === 'feedback' && (
+        <span className="question">
+          <h2>Is there something that we could of done better?</h2>
+            <Textarea 
+                placeholder="Type your feedback here..."
+                value={feedback}
+                setValue={setFeedback} 
+              />
+        </span>
+      )}
+      {question !== 'find' && (
+        <button type="button" onClick={handleSubmitOrContinue}>
+          Continue 
         </button>
       )} 
     </form>
     )}
-  </div>  
+  </main>  
   )
 }
