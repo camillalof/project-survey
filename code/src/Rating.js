@@ -3,6 +3,10 @@ import React from 'react'
 export const Rating = (props) => {
   return (
     <form className="rating">
+      <span className="questionSection">
+        <h2>How would you rate your experience?</h2>
+      </span>
+        <span className="labelSection">
         <label>
           <input
             type="radio"
@@ -53,6 +57,7 @@ export const Rating = (props) => {
                🌟 
               </span>
         </label>
+        </span>
       </form>
     )
 }

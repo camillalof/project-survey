@@ -76,19 +76,17 @@ export const App = () => {
       )}
       {question === 'find' && (
         <span className="question">
-          <h2>How did you find us?</h2>
             <Dropdown
               find={find}
               setFind={setFind}
             />
           <button type="submit">
             Continue
-          </button> 
+          </button>  
         </span>
       )}
       {question === 'rating' && (
         <span className="question">
-          <h2>How would you rate your experience?</h2>
             <Rating 
               rating={rating} 
               setRating={setRating} />
@@ -96,12 +94,11 @@ export const App = () => {
       )}
       {question === 'feedback' && (
         <span className="question">
-          <h2>Is there something that we could of done better?</h2>
             <Textarea 
-                placeholder="Type your feedback here..."
-                value={feedback}
-                setValue={setFeedback} 
-              />
+              placeholder="Type your feedback here..."
+              value={feedback}
+              setValue={setFeedback} 
+            />
         </span>
       )}
       {question !== 'find' && (

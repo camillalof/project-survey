@@ -2,6 +2,7 @@ import React from 'react'
 
 export const Dropdown = (props) => (
     <form className="treatment">
+      <h2>How did you find us?</h2>
         <select
           className="select"
           onChange={(event) => props.setFind(event.target.value)}
@@ -11,6 +12,6 @@ export const Dropdown = (props) => (
           <option value="social media">social media</option>
           <option value="a friend">a friend</option>
           <option value="google">google</option>
-        </select>
+        </select> 
     </form>
     );
