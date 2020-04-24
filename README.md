@@ -1,4 +1,4 @@
-Project Survey
+#Project Survey
 
 This is a survey form built with React Hooks and design I made that was inspired by forms at https://www.typeform.com/. In this project I use React useState hook and props to collect inputs from users and then display it.
 
